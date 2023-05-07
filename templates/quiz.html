@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Portolio</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Portolio</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-App">App</li>
+              <li data-filter=".filter-Card">Card</li>
+              <li data-filter=".filter-Web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up">
+          {% for quiz in quizes %}
+            {% set fname = quiz.img_file1 %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{quiz.Quiz_cate}}">
+              <a href="/quiz-details/{{quiz.Quiz_no}}"><img src={{url_for('static', filename=fname)}} class="img-fluid" alt=""></a>
+              <div class="portfolio-info">
+                <h4>Quiz-{{ quiz.Quiz_no }}</h4>
+                <p>{{quiz.Quiz_sub}}</p>
+                <a href={{url_for('static', filename=fname)}} data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="/quiz-details/{{quiz.Quiz_no}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          {% endfor %}
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

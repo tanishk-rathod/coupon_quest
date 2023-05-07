@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block body %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Add/Delete/Append Quiz</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Add/Delete/Append Quiz</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row mt-5 " data-aos="fade-up">
+          <div class="col-lg-10 php-email-form">
+            <div class="justify-content-center"><h2>Quick Actions</h2></div>
+            <hr>
+            <h5><a href="/edit_quiz/0"><strong>Launch New Quiz</strong></a></h5>
+          </div>
+          <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S. no</th>
+                <th scope="col">Quiz number</th>
+                <th scope="col">Quiz Category</th>
+                <th scope="col">Quiz subtitle</th>
+                <th scope="col">Date Time</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            {% set count = 1 %}
+            {% for quiz in quizes %}
+              <tbody>
+                <tr>
+                  <th scope="row">{{count}}</th>
+                  <td>{{quiz.Quiz_no}}</td>
+                  <td>{{quiz.Quiz_cate}}</td>
+                  <td>{{quiz.Quiz_sub}}</td>
+                  <td>{{quiz.Date_time}}</td>
+                  <td><a href="/edit_quiz/{{quiz.S_no}}"><button class="btn btn-primary" >Edit</button></a></td>
+                  <td><a href="/delete/quiz/{{quiz.S_no}}"><button class="btn btn-primary">Delete</button></a></td>
+                </tr>
+                
+              </tbody>
+              {% set count = count + 1 %}
+            {% endfor %}
+          </table>
+            
+          </div>
+          
+
+        </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

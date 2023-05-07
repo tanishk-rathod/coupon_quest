@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block body %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Sign Up</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Sign Up</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <form role="form" action="/edit_quiz/{{sno}}" method="POST" class="php-email-form"> 
+              {{form.hidden_tag()}} 
+              <div class="form-group mt-3">
+                {% set value = quiz.Quiz_no %}
+                {% if form.quiz_no.errors %}
+                  {{ form.quiz_no(class="form-control form-control-lg is-invalid", placeholder="Quiz Number",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.quiz_no.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.quiz_no(class="form-control", placeholder="Quiz Number", value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.Quiz_sub %}
+                {% if form.quiz_sub.errors %}
+                  {{ form.quiz_sub(class="form-control form-control-lg is-invalid", placeholder="Quiz Subtitle",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.quiz_sub.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.quiz_sub(class="form-control", placeholder="Quiz Subtitle",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.Quiz_cate %}
+                {% if form.quiz_cate.errors %}
+                  {{ form.quiz_cate(class="form-control form-control-lg is-invalid", placeholder="Quiz Category",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.quiz_cate.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.quiz_cate(class="form-control", placeholder="Quiz Category",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.Quiz_des %}
+                {% if form.quiz_des.errors %}
+                  {{ form.quiz_des(class="form-control form-control-lg is-invalid", placeholder="Quiz Description",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.quiz_des.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.quiz_des(class="form-control", placeholder="Quiz Description",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.img_file1 %}
+                {% if form.img_file1.errors %}
+                  {{ form.img_file1(class="form-control form-control-lg is-invalid", placeholder="Img File 1",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.img_file1.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.img_file1(class="form-control", placeholder="Img File 1",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.img_file2 %}
+                {% if form.img_file2.errors %}
+                  {{ form.img_file2(class="form-control form-control-lg is-invalid", placeholder="Img File 2",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.img_file2.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.img_file2(class="form-control", placeholder="Img File 2",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = quiz.img_file3 %}
+                {% if form.img_file3.errors %}
+                  {{ form.img_file3(class="form-control form-control-lg is-invalid", placeholder="Img File 3",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.img_file3.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.img_file3(class="form-control", placeholder="Img File 3",value=value)}}
+                {% endif %}
+              </div>  
+                
+              
+              <div class="text-center">{{form.submit(class="btn btn-secondary", placeholder="Submit")}}</div>
+              
+            </form>
+
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

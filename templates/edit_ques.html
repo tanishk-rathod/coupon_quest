@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block body %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Sign Up</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Sign Up</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <form role="form" action="/edit_ques/{{sno}}" method="POST" class="php-email-form"> 
+              {{form.hidden_tag()}} 
+              <div class="form-group mt-3">
+                {% set value = ques.Quiz_no %}
+                {% if form.quiz_no.errors %}
+                  {{ form.quiz_no(class="form-control form-control-lg is-invalid", placeholder="Quiz Number",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.quiz_no.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.quiz_no(class="form-control", placeholder="Quiz Number", value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.Ques %}
+                {% if form.ques.errors %}
+                  {{ form.ques(class="form-control form-control-lg is-invalid", placeholder="Question",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.ques.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.ques(class="form-control", placeholder="Question",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.A %}
+                {% if form.A.errors %}
+                  {{ form.A(class="form-control form-control-lg is-invalid", placeholder="A",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.A.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.A(class="form-control", placeholder="A",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.B %}
+                {% if form.B.errors %}
+                  {{ form.B(class="form-control form-control-lg is-invalid", placeholder="B",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.B.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.B(class="form-control", placeholder="B",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.C %}
+                {% if form.C.errors %}
+                  {{ form.C(class="form-control form-control-lg is-invalid", placeholder="C",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.C.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.C(class="form-control", placeholder="C",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.D %}
+                {% if form.D.errors %}
+                  {{ form.D(class="form-control form-control-lg is-invalid", placeholder="D",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.D.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.D(class="form-control", placeholder="D",value=value)}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% set value = ques.Answer %}
+                {% if form.answer.errors %}
+                  {{ form.answer(class="form-control form-control-lg is-invalid", placeholder="Answer",value=value) }}
+                  <div class="invalid-feedback">
+                      {% for error in form.answer.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.answer(class="form-control", placeholder="Answer",value=value)}}
+                {% endif %}
+              </div>  
+                
+              
+              <div class="text-center">{{form.submit(class="btn btn-secondary", placeholder="Submit")}}</div>
+              
+            </form>
+
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

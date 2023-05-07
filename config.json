@@ -1,0 +1,36 @@
+{
+	"Params":{
+		"secret_key":"Secret_kety",
+		"local_server":"True",
+		"local_URI":"mysql://root:@127.0.0.1/Flask",
+		"prod_URI":"mysql://root:@127.0.0.1/Flask",
+		
+		"fb_url":"https://www.facebook.com/",
+		"tw_url":"https://twitter.com/",
+		"ins_url":"https://www.instagram.com/",
+		"lid_url":"https://in.linkedin.com/",
+
+		"admin_username": "Admin_username",
+		"admin_password": "Admin_password",
+
+		"upload_location": "//home//tanishk//Documents//FlaskBlog//static",
+
+		"index_img1":"marc-bossow-JOjj1EtcWZQ-unsplash.jpg",
+		"index_img2":"marc-bossow-JOjj1EtcWZQ-unsplash.jpg",
+		"index_img3":"marc-bossow-JOjj1EtcWZQ-unsplash.jpg",
+		"index_img4":"marc-bossow-JOjj1EtcWZQ-unsplash.jpg",
+		
+
+		"About_img": "simon-english-48nerZQCHgo-unsplash.jpg", 
+		"About_title":"About Us",
+		"About_sub1": "We Conduct quizes on daily basis on different domains and provide discount coupons for different cafes, Bars and restaurants to Winners.",
+		"About_sub2": "We also provide a platform for advertisement to several small and big cafes and restaurants.",
+
+		"Phone_num":"+91 9311544497",
+		"Email":"starkarvind1@gmail.com"
+		
+
+
+
+	}
+}

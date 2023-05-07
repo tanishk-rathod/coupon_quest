@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('{{ url_for('static', filename="/img/slide/slide-1.jpg") }}');">
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item active" style="background-image: url('{{ url_for('static', filename="/img/slide/slide-2.jpg") }}');">  
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item active" style="background-image: url('{{ url_for('static', filename="/img/slide/slide-3.jpg") }}');">  
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-item active" style="background-image: url('{{ url_for('static', filename="/img/slide/slide-3.jpg") }}');">
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-left-arrow" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bx bx-right-arrow" aria-hidden="true"></span>
+      </a>
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3>We are working with more than <span>200 ventures</span>!</h3>
+            <p>We provide Easy and affordable Advertisement services to small and big ventures</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="/contact">Contact Us</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2><strong>Quizes</strong></h2>
+          
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-App">App</li>
+              <li data-filter=".filter-Card">Card</li>
+              <li data-filter=".filter-Web">Web</li>
+            </ul>
+          </div>
+        </div>
+        
+
+        <div class="row portfolio-container" data-aos="fade-up">
+          {% for quiz in quizes %}
+            {% set fname = quiz.img_file1 %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{quiz.Quiz_cate}}">
+              <a href="/quiz-details/{{quiz.Quiz_no}}"><img src={{url_for('static', filename=fname)}} class="img-fluid" alt=""></a>
+              <div class="portfolio-info">
+                <h4>Quiz-{{ quiz.Quiz_no }}</h4>
+                <p>{{quiz.Quiz_sub}}</p>
+                <a href={{url_for('static', filename=fname)}} data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="/quiz-details/{{quiz.Quiz_no}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Our Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Our <strong>Clients</strong></h2>
+          <p>We Have Different Clients From different cities of India.</p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src={{url_for('static',filename="/img/clients/client-1.png")}} class="img-fluid" alt=""> 
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src={{url_for('static',filename="/img/clients/client-2.png")}} class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src={{url_for('static',filename="/img/clients/client-3.png")}} class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src={{url_for('static',filename="/img/clients/client-4.png")}} class="img-fluid" alt="">
+          </div> 
+
+        </div>
+
+      </div>
+    </section><!-- End Our Clients Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

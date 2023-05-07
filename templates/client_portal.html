@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block body %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Client Portal</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Client Portal</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+
+            <form action="/client_portal" method="post" role="form" class="php-email-form"> 
+            <h3>Welcome <strong>{{username}}</strong></h3>
+            {{form.hidden_tag()}}  
+              <div class="form-group mt-3">
+                
+                {% if form.coupon_code.errors %}
+                  {{ form.coupon_code(class="form-control form-control-lg is-invalid", placeholder="Enter Coupon Code") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.coupon_code.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.coupon_code(class="form-control", placeholder="Enter Coupon Code")}}
+                {% endif %}
+              </div>
+              
+              <div class="text-center">{{form.submit(class="btn btn-secondary", placeholder="Submit")}}</div>
+            </form>
+            {% if coupon %}
+              <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                <div class="col-lg-10"> 
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Coupon Code</th>
+                        <th scope="col">Discount Percentage</th>
+                        <th scope="col">Date Rewarded</th>
+                        <th scope="col">Expiry Date</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{coupon.Coupon_code}}</th>
+                        <td>{{coupon.Dis_percentage}}</td>
+                        <td>{{coupon.Date_rewarded}}</td>
+                        <td>{{coupon.Expiry_date}}</td>
+                        <td>{{coupon.Status}}</td>
+                      </tr>
+                      
+                    </tbody>
+
+                  </table>
+                  {% if coupon.Status == 'Active' %}
+                  <h4><a href="/redeem/{{coupon.Coupon_code}}">Redeem Now</a></h4>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
